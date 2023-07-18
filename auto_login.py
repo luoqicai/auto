@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
 
     ret =  login(ip=ip, student_id=student_id, device=device,password=password, ISP=ISP)
-    if ret.find('result:1'):
+    if ret.find('"result":"1"'):
         print('登录成功')
     else:
         print('登录失败')
