@@ -34,14 +34,6 @@ def login(ip:str, student_id:str, device:str, password:str, ISP:str) -> str:
           f'v=7656'
     res = requests.get(url)
     res.encoding = res.apparent_encoding
-    msg = res.text
-    msg = msg.split('{')
-    msg = msg[1].split('}')
-    msg = msg[0].replace('\"', '\'')
-    msg = eval('\" ' + msg + '\"')
-    msg = msg.split(',')
-    msg = msg[1]
-    #print(msg.split(':')[1])
     return res.text
 
 if __name__ == '__main__':
@@ -59,7 +51,7 @@ if __name__ == '__main__':
 
     ret =  login(ip=ip, student_id=student_id, device=device,password=password, ISP=ISP)
     print(ret)
-    if ret.find('"result":"1"'):
+    if '"result":"1"' in ret:
         print('登录成功')
     else:
         print('登录失败')
