@@ -1,5 +1,6 @@
 import socket
 import requests
+import yaml
 
 
 def get_host_ip():
@@ -38,19 +39,22 @@ def login(ip:str, student_id:str, device:str, password:str, ISP:str) -> str:
 
 if __name__ == '__main__':
     ip = get_host_ip()
-    # 填写学号
-    student_id = '2110320019'
-    # 选择运营商
-    # ISP value    校园网空串  'cmcc'中国移动 'telecom' 中国电信 'unicom' 中国联通
-    ISP = 'telecom'
-    # 填写密码
-    password = '0906IsNtu!.?'
-    # 选择设备 PC端为0 移动端为1
-    device = '0'
+   
 
+    with open('./infomation.yaml', 'r', encoding='utf-8') as f:
+        result = yaml.load(f.read(), Loader=yaml.FullLoader)
+    
+     # 学号
+    student_id = result['student_id']
+    # 运营商
+    ISP = result['ISP']
+    # 密码
+    password = result['password']
+    # 设备 PC端为0 移动端为1
+    device = result['device']
 
     ret =  login(ip=ip, student_id=student_id, device=device,password=password, ISP=ISP)
-    print(ret)
+    
     if '"result":"1"' in ret:
         print('登录成功')
     else:
