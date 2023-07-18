@@ -41,7 +41,7 @@ if __name__ == '__main__':
     ip = get_host_ip()
    
 
-    with open('./infomation.yaml', 'r', encoding='utf-8') as f:
+    with open(r"D:\Code\Python\others\auto\infomation.yaml", 'r', encoding='utf-8') as f:
         result = yaml.load(f.read(), Loader=yaml.FullLoader)
     
      # 学号
