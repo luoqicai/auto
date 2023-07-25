@@ -1,0 +1,9 @@
+# 填写学号
+student_id: 
+# 填写密码
+password: 
+# 填写设备 PC端为0 手机端为1
+device: 0
+# 填写运营商 校园网不填  'cmcc'中国移动 'telecom' 中国电信 'unicom' 中国联通
+ISP: 'telecom'
+
