@@ -1,6 +1,7 @@
 import socket
 import requests
 import yaml
+from tkinter import messagebox
 
 
 def get_host_ip():
@@ -53,11 +54,15 @@ if __name__ == '__main__':
     # 设备 PC端为0 移动端为1
     device = result['device']
 
+    title='登录信息' 
+
     ret =  login(ip=ip, student_id=student_id, device=device,password=password, ISP=ISP)
     
     if '"result":"1"' in ret:
-        print('登录成功')
+        # print('登录成功')
+        text='登录成功！可以愉快的上网了！！！'
     else:
-        print('登录失败')
-
+        # print('登录失败')
+        text='登录失败，请检查登录信息！'
+    messagebox.showinfo(title, text)
     
