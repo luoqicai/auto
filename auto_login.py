@@ -41,7 +41,7 @@ def login(ip:str, student_id:str, device:str, password:str, ISP:str) -> str:
 if __name__ == '__main__':
     ip = get_host_ip()
    
-
+    # 这里要更改成自己的路径，最好是绝对路径
     with open(r"D:\Code\Python\others\auto\infomation.yaml", 'r', encoding='utf-8') as f:
         result = yaml.load(f.read(), Loader=yaml.FullLoader)
     
@@ -60,9 +60,9 @@ if __name__ == '__main__':
     
     if '"result":"1"' in ret:
         # print('登录成功')
-        text='登录成功！可以愉快的上网了！！！'
+        text='登录成功！可以愉快的上网了！！！！'
     else:
         # print('登录失败')
-        text='登录失败，请检查登录信息！'
+        text='登录失败，请检查登录信息！！！！'
     messagebox.showinfo(title, text)
     
